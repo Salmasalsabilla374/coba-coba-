@@ -1,0 +1,318 @@
+[salma@archlinux ~]$ mongosh 
+Current Mongosh Log ID: 6763fdda8221280cd0964032
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1
+Using MongoDB:          8.0.0
+Using Mongosh:          2.3.1
+mongosh 2.3.7 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-12-19T17:17:48.411+07:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-12-19T17:17:49.084+07:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2024-12-19T17:17:49.084+07:00: For customers running the updated tcmalloc-google memory allocator, we suggest setting the contents of sysfsFile to 'defer+madvise'
+   2024-12-19T17:17:49.084+07:00: We suggest setting the contents of sysfsFile to 0.
+   2024-12-19T17:17:49.084+07:00: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+------
+
+test> use perpustakaan
+switched to db perpustakaan
+perpustakaan> db.anggota.insert([{"Nama" : "Salma Salsa Billa", "Jenis_Kelamin" : "perempuan", "Tanggal_Lahir" : "03 Juli 2004", "Alamat" : "Jakarta Barat"}, {"Nama" : "Saqinah Nur Wahyuni", "Jenis_kelamin" : "perempuan", "Tanggal_lahir" : "27 Desember 2004", "Alamat" : "Jakarta Barat"}, {"Nama" : "Muhammd Ismail", "Jenis_Kelamin" : "Laki laki", "Tanggal_lahir" : "30 Maret 2002", "alamat" : "Jakarta Pusat"}])
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6764063d8221280cd0964033'),
+    '1': ObjectId('6764063d8221280cd0964034'),
+    '2': ObjectId('6764063d8221280cd0964035')
+  }
+}
+perpustakaan> db.koleksi.insert([{"Jenis_Bahan" : "Monograf", "Judul" : "Pengantar ilmu perpustakaan", "pengarang" : "sulistyo basuki", "Penerbit" : "PT. Gramedia Pustaka Utama"}, {"Jenis_Bahan" : "monograf", "Judul" : "Arsip dan Kearsipan", "Pengarang" : "Agus Fatoni", "Penerbit" : "Rajawali Pres"}, {"jenis_bahan" : "Monograf", "judul" : "Mahir Merancang Sistem Informasi Perpustakaan", "Pengarang" : "Nofriadi", "Penerbit" : "Deepublish Yogyakarta"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67640b3b8221280cd0964036'),
+    '1': ObjectId('67640b3b8221280cd0964037'),
+    '2': ObjectId('67640b3b8221280cd0964038')
+  }
+}
+perpustakaan> db.Rak_Buku.insert([{"Nomor_Rak" : "000", "Klasifikasi" : "Buku Umum"}, {"Nomor_Rak" : "100", "Klasifikasi" : "Buku Filsafat"}, {"Nomor Rak" : "200", "Klasifikasi" : "Buku Agama"}, {"Nomor_Rak" : "300", "klasifikasi" : "Buku Ilmu Sosial"}, {"Nomor_Rak" : "400", "klasifikasi" : "Bahasa"}, {"Nomor_Rak" : "500", "Klasifikasi" : "Ilmu Murni"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67640e458221280cd0964039'),
+    '1': ObjectId('67640e458221280cd096403a'),
+    '2': ObjectId('67640e458221280cd096403b'),
+    '3': ObjectId('67640e458221280cd096403c'),
+    '4': ObjectId('67640e458221280cd096403d'),
+    '5': ObjectId('67640e458221280cd096403e')
+  }
+}
+perpustakaan> db.Pustakawan_Nasional.insert([{"Nama" : "Aisyah Azzahra", "Gmail" : "aisyahzahra123@gmail"}, {"Nama" : "Muhammad Firmansya", "Gmail" : "firmansyah23@gmail"}, {"Nama" : "Jafar Siddik", "Gmail" : "jafarsidik671@gmail"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('676410b68221280cd096403f'),
+    '1': ObjectId('676410b68221280cd0964040'),
+    '2': ObjectId('676410b68221280cd0964041')
+  }
+}
+perpustakaan> db.peminjaman.insert([{"Nama" : "Salma", "pinjam" : "Buku pengantar ilmu perpustakaan", "Tanggal_Pinjam" : "12 Desember 2024", "Jadwal_Pengembalian" : "19 Desember 2024"}, {"Nama" : "Adnan lailatul", "pinjam" : "Buku Novel laskar pelangi", "Tanggal_Pinjam" : "15 Desember 2024", "Jadwal_Pengembalian" : "22 Desember 2024"}, {"Nama" : "Nugraha", "Pinjam" : "Buku pendidikan agama", "Tanggal_pinjam" : " 15 Desember 2024", "Jadwal_Pengembalian" : "22 Desember 2024"}, {"Nama" : "Sahadatina", "Pinjam" : "Buku novel ayah", "Tanggal_Pinjam" : "24 Desember 2024", "Jadwal_Pengembalian" : "31 Desember 2024"}, {"Nama" : "Muhammad", "Pinjam" : "Buku agama", "Tanggal_Pinjam" : "11 Januari 2025", "Jadwal_Pengembalian" : "18 Januari 2025"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('676414d78221280cd0964042'),
+    '1': ObjectId('676414d78221280cd0964043'),
+    '2': ObjectId('676414d78221280cd0964044'),
+    '3': ObjectId('676414d78221280cd0964045'),
+    '4': ObjectId('676414d78221280cd0964046')
+  }
+}
+perpustakaan> db.pengembalian.insert([{"Nama" : "Nabila", "Pinjam" : "Buku cerita rakyat", "Pengembalian" : "12 Desember 2024"}, {"nama" ; "Errylianda", "pinjam" : "Buku Ekonomi", "Pengembalian" : "20 Desembear 2024"}, {"nama" : "Muzakir", "pinjam" : "Buku Ekonomi dan bisnis", "Pengembalian" : "24 Desember 2024"}, {"Nama" : "Mail", "pinjam" : "Buku Akuntansi", "Pengembalian": "24 Desember 2024"}, {"Nama" : "Konan", "pinjam": "komik", "Pengembalian" : "29 Desember 2024"}, {"Nama": "Nadia Artia Putri" "pinjam" : "Krtografis Indonesia", "pengembalin" : "31 Desember 2024"}, {"Nama" : "Indah Wahyuni", "pinjam" : "Buku Pendidikan Bahasa Indonesia", "Pengembalian" : "05 
+Uncaught:
+SyntaxError: Unexpected token (1:123)
+
+> 1 | db.pengembalian.insert([{"Nama" : "Nabila", "Pinjam" : "Buku cerita rakyat", "Pengembalian" : "12 Desember 2024"}, {"nama" ; "Errylianda", "pinjam" : "Buku Ekonomi", "Pengembalian" : "20 Desembear 2024"}, {"nama" : "Muzakir", "pinjam" : "Buku Ekonomi dan bisnis", "Pengembalian" : "24 Desember 2024"}, {"Nama" : "Mail", "pinjam" : "Buku Akuntansi", "Pengembalian": "24 Desember 2024"}, {"Nama" : "Konan", "pinjam": "komik", "Pengembalian" : "29 Desember 2024"}, {"Nama": "Nadia Artia Putri" "pinjam" : "Krtografis Indonesia", "pengembalin" : "31 Desember 2024"}, {"Nama" : "Indah Wahyuni", "pinjam" : "Buku Pendidikan Bahasa Indonesia", "Pengembalian" : "05 
+    |                                                                                                                            ^
+  2 |
+
+perpustakaan> db.pengembalian.insert([{"Nama" : "Nabila", "Pinjam" :"buku cerita rakyat", "Pengembalian" : " 12 Desember 2024"
+... show dbs
+Uncaught:
+SyntaxError: Unexpected token, expected "," (2:0)
+
+  1 | db.pengembalian.insert([{"Nama" : "Nabila", "Pinjam" :"buku cerita rakyat", "Pengembalian" : " 12 Desember 2024"
+> 2 | show dbs
+    | ^
+  3 |
+
+perpustakaan> show dbs
+Ilmu_Perpustakaan  256.00 KiB
+UIN_Jakarta        152.00 KiB
+admin               40.00 KiB
+config             108.00 KiB
+laundry             40.00 KiB
+local               88.00 KiB
+pasar               88.00 KiB
+perpustakaan       200.00 KiB
+test               120.00 KiB
+perpustakaan> show collections
+anggota
+koleksi
+peminjaman
+Pustakawan_Nasional
+Rak_Buku
+perpustakaan> db.anggota.find()
+[
+  {
+    _id: ObjectId('6764063d8221280cd0964033'),
+    Nama: 'Salma Salsa Billa',
+    Jenis_Kelamin: 'perempuan',
+    Tanggal_Lahir: '03 Juli 2004',
+    Alamat: 'Jakarta Barat'
+  },
+  {
+    _id: ObjectId('6764063d8221280cd0964034'),
+    Nama: 'Saqinah Nur Wahyuni',
+    Jenis_kelamin: 'perempuan',
+    Tanggal_lahir: '27 Desember 2004',
+    Alamat: 'Jakarta Barat'
+  },
+  {
+    _id: ObjectId('6764063d8221280cd0964035'),
+    Nama: 'Muhammd Ismail',
+    Jenis_Kelamin: 'Laki laki',
+    Tanggal_lahir: '30 Maret 2002',
+    alamat: 'Jakarta Pusat'
+  }
+]
+perpustakaan> db.koleksi.find()
+[
+  {
+    _id: ObjectId('67640b3b8221280cd0964036'),
+    Jenis_Bahan: 'Monograf',
+    Judul: 'Pengantar ilmu perpustakaan',
+    pengarang: 'sulistyo basuki',
+    Penerbit: 'PT. Gramedia Pustaka Utama'
+  },
+  {
+    _id: ObjectId('67640b3b8221280cd0964037'),
+    Jenis_Bahan: 'monograf',
+    Judul: 'Arsip dan Kearsipan',
+    Pengarang: 'Agus Fatoni',
+    Penerbit: 'Rajawali Pres'
+  },
+  {
+    _id: ObjectId('67640b3b8221280cd0964038'),
+    jenis_bahan: 'Monograf',
+    judul: 'Mahir Merancang Sistem Informasi Perpustakaan',
+    Pengarang: 'Nofriadi',
+    Penerbit: 'Deepublish Yogyakarta'
+  }
+]
+perpustakaan> db.Rak_Buku.find()
+[
+  {
+    _id: ObjectId('67640e458221280cd0964039'),
+    Nomor_Rak: '000',
+    Klasifikasi: 'Buku Umum'
+  },
+  {
+    _id: ObjectId('67640e458221280cd096403a'),
+    Nomor_Rak: '100',
+    Klasifikasi: 'Buku Filsafat'
+  },
+  {
+    _id: ObjectId('67640e458221280cd096403b'),
+    'Nomor Rak': '200',
+    Klasifikasi: 'Buku Agama'
+  },
+  {
+    _id: ObjectId('67640e458221280cd096403c'),
+    Nomor_Rak: '300',
+    klasifikasi: 'Buku Ilmu Sosial'
+  },
+  {
+    _id: ObjectId('67640e458221280cd096403d'),
+    Nomor_Rak: '400',
+    klasifikasi: 'Bahasa'
+  },
+  {
+    _id: ObjectId('67640e458221280cd096403e'),
+    Nomor_Rak: '500',
+    Klasifikasi: 'Ilmu Murni'
+  }
+]
+perpustakaan> db.Pustakawan_Nasional.find()
+[
+  {
+    _id: ObjectId('676410b68221280cd096403f'),
+    Nama: 'Aisyah Azzahra',
+    Gmail: 'aisyahzahra123@gmail'
+  },
+  {
+    _id: ObjectId('676410b68221280cd0964040'),
+    Nama: 'Muhammad Firmansya',
+    Gmail: 'firmansyah23@gmail'
+  },
+  {
+    _id: ObjectId('676410b68221280cd0964041'),
+    Nama: 'Jafar Siddik',
+    Gmail: 'jafarsidik671@gmail'
+  }
+]
+perpustakaan> db.peminjaman.find()
+[
+  {
+    _id: ObjectId('676414d78221280cd0964042'),
+    Nama: 'Salma',
+    pinjam: 'Buku pengantar ilmu perpustakaan',
+    Tanggal_Pinjam: '12 Desember 2024',
+    Jadwal_Pengembalian: '19 Desember 2024'
+  },
+  {
+    _id: ObjectId('676414d78221280cd0964043'),
+    Nama: 'Adnan lailatul',
+    pinjam: 'Buku Novel laskar pelangi',
+    Tanggal_Pinjam: '15 Desember 2024',
+    Jadwal_Pengembalian: '22 Desember 2024'
+  },
+  {
+    _id: ObjectId('676414d78221280cd0964044'),
+    Nama: 'Nugraha',
+    Pinjam: 'Buku pendidikan agama',
+    Tanggal_pinjam: ' 15 Desember 2024',
+    Jadwal_Pengembalian: '22 Desember 2024'
+  },
+  {
+    _id: ObjectId('676414d78221280cd0964045'),
+    Nama: 'Sahadatina',
+    Pinjam: 'Buku novel ayah',
+    Tanggal_Pinjam: '24 Desember 2024',
+    Jadwal_Pengembalian: '31 Desember 2024'
+  },
+  {
+    _id: ObjectId('676414d78221280cd0964046'),
+    Nama: 'Muhammad',
+    Pinjam: 'Buku agama',
+    Tanggal_Pinjam: '11 Januari 2025',
+    Jadwal_Pengembalian: '18 Januari 2025'
+  }
+]
+perpustakaan> db.pengembalian.insert([{"Nama" : "Nabila", "Pinjam" : "Buku Cerita Rakyat", "Pengembalian" : "12 Desember 2024"}, {"Nama" : "Errylianda", "Pinjam" :"Buku Ekonomi", "Pengembalian" : "20 Desember 2024"}, {"Nama" : "Muzakir", "Pinjam" : "Buku Ekonomi dan Bisnis", "pengembalian" : "24 Desember 2024"}, {"Nama" : "Mail", "pinjam" : "Buku Akuntansi", "Pengembalian" : "24 Desember 2024"}, {"Nama" : "Konan", "Pinjam" : "Komik", "Pengembalian" : "29 Desember 2024"}, {"Nama" : "Nadia Artia Putri", "Pinjam" : "Kratografi Indonesia", "Pengembalian" : "31 Desember 2024"}, {"Nama" : "Indah Wahyuningtias", "Pinjam" : "Buku Pendidikan Bahasa Indonesia", "Penembalian" : "05 Januari 2024"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('676435988221280cd0964047'),
+    '1': ObjectId('676435988221280cd0964048'),
+    '2': ObjectId('676435988221280cd0964049'),
+    '3': ObjectId('676435988221280cd096404a'),
+    '4': ObjectId('676435988221280cd096404b'),
+    '5': ObjectId('676435988221280cd096404c'),
+    '6': ObjectId('676435988221280cd096404d')
+  }
+}
+perpustakaan> db.pengembalian.find()
+[
+  {
+    _id: ObjectId('676435988221280cd0964047'),
+    Nama: 'Nabila',
+    Pinjam: 'Buku Cerita Rakyat',
+    Pengembalian: '12 Desember 2024'
+  },
+  {
+    _id: ObjectId('676435988221280cd0964048'),
+    Nama: 'Errylianda',
+    Pinjam: 'Buku Ekonomi',
+    Pengembalian: '20 Desember 2024'
+  },
+  {
+    _id: ObjectId('676435988221280cd0964049'),
+    Nama: 'Muzakir',
+    Pinjam: 'Buku Ekonomi dan Bisnis',
+    pengembalian: '24 Desember 2024'
+  },
+  {
+    _id: ObjectId('676435988221280cd096404a'),
+    Nama: 'Mail',
+    pinjam: 'Buku Akuntansi',
+    Pengembalian: '24 Desember 2024'
+  },
+  {
+    _id: ObjectId('676435988221280cd096404b'),
+    Nama: 'Konan',
+    Pinjam: 'Komik',
+    Pengembalian: '29 Desember 2024'
+  },
+  {
+    _id: ObjectId('676435988221280cd096404c'),
+    Nama: 'Nadia Artia Putri',
+    Pinjam: 'Kratografi Indonesia',
+    Pengembalian: '31 Desember 2024'
+  },
+  {
+    _id: ObjectId('676435988221280cd096404d'),
+    Nama: 'Indah Wahyuningtias',
+    Pinjam: 'Buku Pendidikan Bahasa Indonesia',
+    Penembalian: '05 Januari 2024'
+  }
+]
+perpustakaan> show dbs
+Ilmu_Perpustakaan  256.00 KiB
+UIN_Jakarta        152.00 KiB
+admin               40.00 KiB
+config             108.00 KiB
+laundry             40.00 KiB
+local               88.00 KiB
+pasar               88.00 KiB
+perpustakaan       240.00 KiB
+test               120.00 KiB
+perpustakaan> show collections
+anggota
+koleksi
+peminjaman
+pengembalian
+Pustakawan_Nasional
+Rak_Buku
+perpustakaan> 
